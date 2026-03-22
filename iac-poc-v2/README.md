@@ -24,13 +24,13 @@ Windows Host (firewall/NAT)
 ## Estrutura do Projeto
 
 ```
-iac-poc/
-├── powershell/
-│   ├── network_setup.ps1       # cria switch e NAT no Hyper-V
-│   └── vm_management.ps1       # gerencia VMs (criar, iniciar, parar)
-├── scripts/
-│   ├── setup_environment.sh    # configuração inicial da VM de controle
-│   └── configure_network.sh    # configura IP estático via nmcli
+iac-poc-v2/
+├── host-docker/
+│   ├── network-rhel.ps1        # Configura IP e conexão SSH
+│   ├── docker-rhel.ps1         # Instalar e iniciar Docker
+│   vhost-hyperv/
+│   ├── network-vhost.sh        # Criar Hyper-V SW e Habilitar NAT
+│   └── create-hyperv-rhel.sh   # Cria VM que hospeda o RHEL
 ├── docker/
 │   ├── terraform/Dockerfile    # contêiner Terraform
 │   └── ansible/Dockerfile      # contêiner Ansible

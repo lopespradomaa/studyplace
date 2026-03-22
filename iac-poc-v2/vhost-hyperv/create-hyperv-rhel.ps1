@@ -1,20 +1,5 @@
+# Criar a VM de controle no Hyper-V e conexão SSH
 # =============================================================================
-# Prepara o ambiente de rede e criar a VM de controle no Hyper-V
-
-# Criar switch interno
-New-VMSwitch -SwitchName "<vswitch-lab>" -SwitchType Internal
-
-# Configurar IP do gateway no host
-New-NetIPAddress -IPAddress "<gateway-ip>" -PrefixLength 24 `
-    -InterfaceAlias "vEthernet (<vswitch-lab>)"
-
-# Criar NAT
-New-NetNat -Name "<nat-lab>" -InternalIPInterfaceAddressPrefix "<gateway-ip>/24"
-
-# Verificar
-Get-VMSwitch
-Get-NetNat
-Get-NetIPAddress -InterfaceAlias "vEthernet (<vswitch-lab>)"
 
 # Criar a VM
 New-VM `
